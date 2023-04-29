@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{%block style%}
+<style>
+    img {
+        width: 200px; 
+        height: 200px;
+    }
+</style>
+{%endblock%}
+
+
+{% block content %}
+<main class="container">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        
+        <h2>{{post.title}}</h2>
+        <div class="row d-block">
+            <div class="col-lg-3">
+                {%if post.photo %}
+                <p><img class="float-start me-2 img-thumbnail rounded" src="{{post.photo.url}}"></p>
+                {%else%}
+                <p><img class="float-start me-2 img-thumbnail rounded" src="{% static 'main/images/no_icon.png' %}"></p>
+                {%endif%}
+            </div>
+        {{post.content|linebreaks}}
+        </div>
+    </div>
+</main>
+{%endblock%}

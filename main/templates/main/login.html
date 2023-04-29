@@ -1,0 +1,10 @@
+{%extends 'main/log.html'%}
+{%block form%}
+    <h1 class="h3 mb-3 font-weight-normal">Пожалуйста войдите</h1>
+    {{form.non_field_errors}}
+    {%for f in form%}
+    {{f}}
+    {%endfor%}
+    <button class="btn btn-lg btn-primary btn-block w-100" type="submit" style="max-width: 330;">Войти</button>
+    
+{%endblock%}

@@ -1,0 +1,22 @@
+<div class="nav-scroller bg-white shadow-sm">
+    <nav class="nav nav-underline">
+      {% if cur_cat == 0 %}
+        <a href="{% url 'home' %}" class="nav-link active">Все категории</a>
+      {%else%}
+        <a href="{% url 'home' %}" class="nav-link">Все категории</a>
+      {%endif%}
+      {% for cat in cats %}
+        {% if cat.slug == cur_cat %}
+          <a class="nav-link active" href="{{ cat.get_absolute_url }}">{{cat.name}}</a>
+        {% else %}
+          <a class="nav-link" href="{{ cat.get_absolute_url }}">{{cat.name}}</a>
+        {% endif %}
+      {% endfor %}
+      <!-- <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+      <a class="nav-link" href="#">
+        Friends
+        <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+      </a> -->
+      
+    </nav>
+</div>

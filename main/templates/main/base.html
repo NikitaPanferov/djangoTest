@@ -1,0 +1,27 @@
+{% load static %}
+{%load main_tags%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block title %}
+    {%endblock%}
+    {% block style%}
+    {%endblock%}
+
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}" />
+  </head>
+  <body class="bg-light">
+    {%if request.user.is_authenticated%}
+    {%show_menu_auth cur %}
+    {%else%}
+    {%show_menu cur%}
+    {%endif%}
+    
+
+    {% block content %}
+    {%endblock%}
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>

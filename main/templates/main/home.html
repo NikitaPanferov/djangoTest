@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{%load static %}
+{%load main_tags%}
+
+{% block style%}
+<style>
+  .nav-underline .nav-link {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: .875rem;
+    color: #6c757d;
+  }
+
+  img {
+    width: 200px; 
+    height: 200px;
+  }
+  
+  .nav-underline .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .nav-underline .active {
+    font-weight: 500;
+    color: #343a40;
+  }
+</style>
+{%endblock%}
+
+{% block content %}
+{% show_categories cur_cat %}
+
+<main class="container">
+  {% for post in posts %}
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="row">
+      <div class="col-3">
+        {%if post.photo %}
+        <img class="img-thumbnail rounded" src="{{post.photo.url}}">
+        {%else%}
+        <img class="img-thumbnail rounded" src="{% static 'main/images/no_icon.png' %}">
+        {%endif%}
+      </div>
+      <div class="col-9 position-relative">
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">{{post.title}}</strong>
+          {{post.content|linebreaks|truncatewords:50}}
+        </p>
+      
+        
+        <small class="d-block mt-3 text-end position-absolute bottom-0 end-0">
+          <a href="{{ post.get_absolute_url }}" class="btn btn-dark me-2" role="button">Читать</a>
+        </small>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  {%endfor%}
+</main>
+
+{% endblock %}

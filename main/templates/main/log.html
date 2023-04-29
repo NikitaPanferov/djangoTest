@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+    <title>Document</title>
+    <style>
+      html, body {height: 100%;}
+      .upper-input {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .mid-input {
+        margin-bottom: -1px;
+        border-radius: 0
+      }
+      .bottom-input {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+
+    </style>
+</head>
+<body class="text-center d-flex bg-dark text-light" >
+<!--style="background-color: #f5f5f5"-->
+
+<form method="post" class="m-auto" style="max-width: 330px;">
+  <a href="/"><img class="mb-4" src="{% static 'main/images/rea.png' %}" width="72" height="72"></a>
+  {%csrf_token%}
+    {%block form%}
+    {%endblock%}
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+</form>
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

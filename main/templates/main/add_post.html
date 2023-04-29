@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+{%block content%}
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {{form.as_p}}
+<!-- {%for f in form%}
+    {{f}}
+    {{f.errors}}
+{%endfor%} -->
+<button class="btn btn-success" type="submit">Создать</button>
+</form>
+{%endblock%}

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav me-auto">
+          {% for m in menu %}
+            {% if m.name == cur %}
+
+              <a class="nav-link active" href="{% url m.url %}">{{m.name}}</a>
+            {% else %}
+              <a class="nav-link" href="{% url m.url %}">{{m.name}}</a>
+            {% endif %}
+          {% endfor %}
+
+<!--            <a class="nav-link active" href="#">Home</a>-->
+<!--            <a class="nav-link" href="#">Features</a>-->
+<!--            <a class="nav-link" href="#">Pricing</a>-->
+        </div>
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger" role="button">Выход</a>
+
+      </div>
+    </div>
+  </nav>
